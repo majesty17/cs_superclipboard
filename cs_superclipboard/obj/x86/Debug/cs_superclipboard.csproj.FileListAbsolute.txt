@@ -1,7 +1,0 @@
-E:\git\cs_superclipboard\cs_superclipboard\bin\Debug\cs_superclipboard.exe
-E:\git\cs_superclipboard\cs_superclipboard\bin\Debug\cs_superclipboard.pdb
-E:\git\cs_superclipboard\cs_superclipboard\obj\x86\Debug\cs_superclipboard.Form1.resources
-E:\git\cs_superclipboard\cs_superclipboard\obj\x86\Debug\cs_superclipboard.Properties.Resources.resources
-E:\git\cs_superclipboard\cs_superclipboard\obj\x86\Debug\cs_superclipboard.csproj.GenerateResource.Cache
-E:\git\cs_superclipboard\cs_superclipboard\obj\x86\Debug\cs_superclipboard.exe
-E:\git\cs_superclipboard\cs_superclipboard\obj\x86\Debug\cs_superclipboard.pdb
