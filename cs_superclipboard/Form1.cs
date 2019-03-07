@@ -41,7 +41,7 @@ namespace cs_superclipboard
 
             Hotkey hotkey;
             hotkey = new Hotkey(this.Handle);
-            Hotkey1 = hotkey.RegisterHotkey(System.Windows.Forms.Keys.V, Hotkey.KeyFlags.MOD_WIN);   //定义快键(Ctrl + F2)
+            Hotkey1 = hotkey.RegisterHotkey(System.Windows.Forms.Keys.F2, Hotkey.KeyFlags.MOD_CONTROL);   //定义快键(Ctrl + F2)
             hotkey.OnHotkey += new HotkeyEventHandler(OnHotkey);
 
 
@@ -267,6 +267,7 @@ namespace cs_superclipboard
             if (HotkeyID == Hotkey1)
             {
                 Input("hahaha");
+                MessageBox.Show("asdfsdf");
 
             }
         }
