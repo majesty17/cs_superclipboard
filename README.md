@@ -2,4 +2,4 @@
 示例:
 
 
-![examples](sample.jpg "examples")
+![examples](sample.png "examples")
