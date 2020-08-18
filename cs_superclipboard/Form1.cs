@@ -33,7 +33,7 @@ namespace cs_superclipboard
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "超级剪切板 v0.1";
+            this.Text = "超级剪切板 v0.2";
 
             timer1.Start();
             player.SoundLocation = @"C:\Windows\Media\Windows Notify Messaging.wav";
@@ -82,11 +82,17 @@ namespace cs_superclipboard
             for (int i = 0; i < all_data.Count;i++)
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.Text = all_data[i];
+                if (all_data[i].Length > 100)
+                    lvi.Text = all_data[i].Substring(0, 100) + "...";
+                else
+                    lvi.Text = all_data[i];
                 lvi.SubItems.Add("" + (i + 1));
+                lvi.SubItems.Add(all_data[i].Length+"字符数");  //字符数
+                lvi.SubItems.Add(all_data[i].Split('\r').Length+"行数"); //行数
                 listView1.Items.Add(lvi);
             }
             columnHeader1.Width = 500;
+            columnHeader3.Width = 100;
 
             //
             //头条插入当前剪切板&加黑
@@ -158,8 +164,11 @@ namespace cs_superclipboard
         {
             if (listView1.SelectedItems.Count != 1 || listView1.Items[0].Selected==true)
                 return;
-            string s_text = listView1.SelectedItems[0].Text;
-            int ind = all_data.IndexOf(s_text);
+            int ind = listView1.SelectedIndices[0];
+            string s_text = all_data[ind];
+            //listview里不再显示完整内容
+            //string s_text = listView1.SelectedItems[0].Text;
+            //int ind = all_data.IndexOf(s_text);
             string f_text = all_data[0];
 
             all_data[0] = s_text;
@@ -313,7 +322,7 @@ namespace cs_superclipboard
             }
             else {
                 this.TopMost = true;
-                this.Opacity = 0.650;
+                this.Opacity = 0.850;
             }
         }
 

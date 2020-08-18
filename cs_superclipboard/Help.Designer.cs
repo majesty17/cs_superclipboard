@@ -39,15 +39,15 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(147, 140);
+            this.textBox1.Size = new System.Drawing.Size(151, 109);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "提前 = 双击\r\n删除 = 选中 + DEL\r\n上滚 = 减号\r\n下滚 = 加号\r\n置顶 = 数字键\r\n";
             // 
             // Help
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(147, 140);
+            this.ClientSize = new System.Drawing.Size(151, 109);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Help";
