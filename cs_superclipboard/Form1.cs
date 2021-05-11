@@ -35,7 +35,9 @@ namespace cs_superclipboard
         {
             this.Text = "超级剪切板 v0.2";
 
+            timer1.Interval = 500;
             timer1.Start();
+
             player.SoundLocation = @"C:\Windows\Media\Windows Notify Messaging.wav";
             player.Load();
 
@@ -49,7 +51,9 @@ namespace cs_superclipboard
 
 
 
-        //定时器
+        ///定时器:
+        ///定期查看当前剪切板内容，如果在，则加入
+
         private void timer1_Tick(object sender, EventArgs e) {
             IDataObject data = Clipboard.GetDataObject();
             if (data.GetDataPresent(DataFormats.Text) == true) {
@@ -62,7 +66,7 @@ namespace cs_superclipboard
                         //all_data.Add(text); 插入到第一，而不是追加
                         all_data.Insert(0, text);
                         showData();
-                        player.Play();
+                        player.Play();    //加入成功的话播放音效
                     }
                     //如果在，并且不在第一位，则移动到第一位
                     if (hasData(text) == true && all_data[0].Equals(text) == false) {
@@ -87,8 +91,7 @@ namespace cs_superclipboard
                 else
                     lvi.Text = all_data[i];
                 lvi.SubItems.Add("" + (i + 1));
-                lvi.SubItems.Add(all_data[i].Length+"字符数");  //字符数
-                lvi.SubItems.Add(all_data[i].Split('\r').Length+"行数"); //行数
+                lvi.SubItems.Add(all_data[i].Length + "C|" + all_data[i].Split('\r').Length + "L"); //字符数+行数
                 listView1.Items.Add(lvi);
             }
             columnHeader1.Width = 500;
@@ -114,10 +117,11 @@ namespace cs_superclipboard
             return false;
         }
         
-        //删除
+        //监听一些快捷操作
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
             string text = (string)Clipboard.GetDataObject().GetData(DataFormats.Text);
+            //删除选中
             if (e.KeyData == Keys.Delete) {
                 foreach (ListViewItem it in listView1.SelectedItems) {
                     all_data.Remove(it.Text);
@@ -147,6 +151,7 @@ namespace cs_superclipboard
 
                 }
             }
+            //数字键，置顶
             if ((int)e.KeyData >= 49 && (int)e.KeyData <= 57) {
                 int ind = (int)e.KeyData - 48-1;
                 //MessageBox.Show("press:" + ind);
